@@ -6,7 +6,7 @@ import { getBorderCss } from '../borderController'
 
 interface Props extends MediaType {
     last?: boolean
-    single?: boolean
+    single?: boolean,
     messageType: "incoming" | "outgoing"
 }
 
@@ -84,7 +84,8 @@ export default function MediaContent({
     size,
     last,
     single,
-    messageType
+    messageType,
+    name
 }: Props) {
 
     return (
@@ -123,7 +124,7 @@ export default function MediaContent({
                     <div style={{ width: "100%", display: 'flex' }}>
                         <FileContainer
                             target='_blank'
-                            href={url}>{DownloadIcon}&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ textDecoration: "underline" }}>{url}{size && <SizeText>({size})</SizeText>}</span></FileContainer>
+                            href={url}>{DownloadIcon}&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ textDecoration: "underline" }}>{name || url}{size && <SizeText>({size})</SizeText>}</span></FileContainer>
                     </div>
                 </div>
 
