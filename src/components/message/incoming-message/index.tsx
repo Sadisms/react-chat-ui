@@ -90,6 +90,7 @@ export default function IncomingMessage({
     last,
     single,
     created_at,
+    axiosClient
 }: Omit<Props, "type" | "clusterFirstMessage" | "clusterLastMessage" | "seen">) {
 
     const { themeColor } = useContext(MinChatUIContext)
@@ -148,6 +149,7 @@ export default function IncomingMessage({
                             last={last}
                             single={single}
                             messageType='incoming'
+                            axiosClient={axiosClient}
                             {...media} />
                             :
                             <TextContent
