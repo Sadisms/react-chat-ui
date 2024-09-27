@@ -8,6 +8,7 @@ interface Props extends MediaType {
     last?: boolean
     single?: boolean,
     messageType: "incoming" | "outgoing"
+    axiosClient?: any
 }
 
 const ImageContainer = styled.div`
