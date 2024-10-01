@@ -79,7 +79,6 @@ const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName ,
       <FileContainer
         href={fileUrl}
         onClick={downloadFile}
-        style={{ pointerEvents: loading ? 'none' : 'auto', textDecoration: 'underline', color: loading ? 'gray' : 'blue' }}
       >
         {text}
       </FileContainer>
