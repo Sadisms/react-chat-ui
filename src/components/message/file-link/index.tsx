@@ -79,6 +79,10 @@ const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName ,
       <FileContainer
         href={fileUrl}
         onClick={downloadFile}
+        style={{
+          marginTop: "3px",
+          marginBottom: "5px"
+        }}
       >
         {text}
       </FileContainer>
