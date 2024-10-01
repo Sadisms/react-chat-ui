@@ -70,7 +70,7 @@ const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName ,
     }
   };
 
-  let text = <>DownloadIcon&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ textDecoration: "underline" }}>{fileName}</span></>
+  let text = <>{DownloadIcon}&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ textDecoration: "underline" }}>{fileName}</span></>
   if (loading)
     text = <>Loading...</>;
 
