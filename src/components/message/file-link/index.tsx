@@ -75,14 +75,15 @@ const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName ,
     text = <>Loading...</>;
 
   return (
-    <div>
+    <div
+      style={{
+        paddingTop: "10px",
+        paddingBottom: "10px"
+      }}
+    >
       <FileContainer
         href={fileUrl}
         onClick={downloadFile}
-        style={{
-          paddingTop: "3px",
-          paddingBottom: "5px"
-        }}
       >
         {text}
       </FileContainer>
