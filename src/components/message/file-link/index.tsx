@@ -1,6 +1,26 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import styled from "styled-components";
 
+
+const FileContainer = styled.a`
+text-align:left;
+vertical-align:text-top;
+font-size:14px;
+align-self:flex-start;
+line-height:auto;
+color:#000000;
+font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+padding-left:16px;
+padding-right:16px;
+padding-top:8px;
+padding-bottom:8px;
+position: relative;
+box-sizing: border-box;
+word-wrap: break-word;
+width: 100%;
+text-decoration: none;
+user-select: none;
+`
 
 const DownloadIcon = <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -17,10 +37,11 @@ const DownloadIcon = <svg
 interface FileDownloadLinkProps {
   fileUrl: string;
   fileName: string;
+  axiosClient: any;
 }
 
 const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName }) => {
-  const text = <>{DownloadIcon}&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ textDecoration: "underline" }}>{fileName}</span></>
+  let text = <>{DownloadIcon}&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ textDecoration: "underline" }}>{fileName}</span></>
 
   return (
     <div
@@ -29,14 +50,12 @@ const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName }
         paddingBottom: "10px"
       }}
     >
-      <Link
-        to={fileUrl}
-        download={fileName}
-        target="_blank"
-        rel="noreferrer"
+      <FileContainer
+        href={fileUrl}
+        onClick={() => window.open(fileUrl)}
       >
-          {text}
-      </Link>
+        {text}
+      </FileContainer>
     </div>
   );
 };
