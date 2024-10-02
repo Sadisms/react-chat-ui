@@ -9,6 +9,7 @@ interface Props extends MediaType {
     last?: boolean
     single?: boolean,
     messageType: "incoming" | "outgoing"
+    axiosClient?: any
 }
 
 const ImageContainer = styled.div`
@@ -46,7 +47,8 @@ export default function MediaContent({
     last,
     single,
     messageType,
-    name
+    name,
+    axiosClient
 }: Props) {
 
     return (
@@ -86,6 +88,7 @@ export default function MediaContent({
                         <FileDownloadLink
                             fileUrl={url}
                             fileName={name || url}
+                            axiosClient={axiosClient}
                         />
                     </div>
                 </div>

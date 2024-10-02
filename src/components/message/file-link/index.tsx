@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
 
 const FileContainer = styled.a`
 text-align:left;
@@ -37,10 +36,43 @@ const DownloadIcon = <svg
 interface FileDownloadLinkProps {
   fileUrl: string;
   fileName: string;
+  axiosClient: any;
 }
 
-const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName }) => {
+const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName , axiosClient }) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const downloadFile = async (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axiosClient.get(fileUrl, {
+        responseType: 'blob',
+      });
+
+      const blob = new Blob([response.data], { type: response.headers['content-type'] });
+      const downloadUrl = window.URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = fileName;
+      link.click();
+
+      window.URL.revokeObjectURL(downloadUrl);
+
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   let text = <>{DownloadIcon}&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ textDecoration: "underline" }}>{fileName}</span></>
+  if (loading)
+    text = <>Loading...</>;
 
   return (
     <div
@@ -51,10 +83,11 @@ const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName }
     >
       <FileContainer
         href={fileUrl}
-        onClick={() => window.open(fileUrl)}
+        onClick={downloadFile}
       >
         {text}
       </FileContainer>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
 };
