@@ -72,7 +72,9 @@
   },
   "dependencies": {
     "@types/styled-components": "^5.1.28",
+    "file-saver": "^2.0.5",
     "postcss": "^8.4.31",
+    "react-router-dom": "^6.26.2",
     "rollup-plugin-import-css": "^3.3.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^4.0.0",

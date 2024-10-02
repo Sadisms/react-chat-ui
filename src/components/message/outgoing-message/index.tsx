@@ -58,8 +58,7 @@ export default function MyMessage({
     clusterFirstMessage,
     clusterLastMessage,
     created_at,
-    seen,
-    axiosClient
+    seen
 }: Omit<Props, "showHeader" | "showAvatar" | "type">) {
 
     const { themeColor } = useContext(MinChatUIContext)
@@ -99,7 +98,6 @@ export default function MyMessage({
                         last={last}
                         single={single}
                         messageType='outgoing'
-                        axiosClient={axiosClient}
                         {...media} />
                         :
                         <TextContent

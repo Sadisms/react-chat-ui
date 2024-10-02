@@ -21,7 +21,6 @@ export type Props = {
     single?: boolean
     clusterFirstMessage?: boolean
     clusterLastMessage?: boolean
-    axiosClient?: any
 };
 
 
@@ -38,8 +37,7 @@ export default function Message({
     last,
     single,
     clusterFirstMessage,
-    clusterLastMessage,
-    axiosClient
+    clusterLastMessage
 }: Props) {
 
     return (
@@ -54,7 +52,6 @@ export default function Message({
                 single={single}
                 clusterFirstMessage={clusterFirstMessage}
                 clusterLastMessage={clusterLastMessage}
-                axiosClient={axiosClient}
             />
 
             :
@@ -68,7 +65,6 @@ export default function Message({
                 showHeader={showHeader}
                 last={last}
                 single={single}
-                axiosClient={axiosClient}
             />
 
     )
