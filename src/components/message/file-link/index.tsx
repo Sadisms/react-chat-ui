@@ -55,7 +55,8 @@ const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName ,
         responseType: 'blob',
       });
 
-      fileDownload(response.data, fileName);
+      const blob = new Blob([response.data], { type: response.headers['content-type'] });
+      fileDownload(blob, fileName);
     } catch (err) {
       console.error(err);
     } finally {
