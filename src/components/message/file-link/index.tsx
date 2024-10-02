@@ -37,7 +37,6 @@ const DownloadIcon = <svg
 interface FileDownloadLinkProps {
   fileUrl: string;
   fileName: string;
-  axiosClient: any;
 }
 
 const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName }) => {
