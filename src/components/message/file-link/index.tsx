@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { saveAs } from 'file-saver';
 
 const FileContainer = styled.a`
 text-align:left;
