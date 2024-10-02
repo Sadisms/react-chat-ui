@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import fileDownload from "js-file-download";
+
 
 const FileContainer = styled.a`
 text-align:left;
@@ -53,16 +55,7 @@ const FileDownloadLink: React.FC<FileDownloadLinkProps> = ({ fileUrl, fileName ,
         responseType: 'blob',
       });
 
-      const blob = new Blob([response.data], { type: response.headers['content-type'] });
-      const downloadUrl = window.URL.createObjectURL(blob);
-
-      const link = document.createElement('a');
-      link.href = downloadUrl;
-      link.download = fileName;
-      link.click();
-
-      window.URL.revokeObjectURL(downloadUrl);
-
+      fileDownload(response.data, fileName);
     } catch (err) {
       console.error(err);
     } finally {
