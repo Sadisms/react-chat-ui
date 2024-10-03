@@ -82,10 +82,7 @@ export default function MediaContent({
     customImageElement
 }: Props) {
     if (customImageElement) { // @ts-ignore
-        return <customImageElement
-            url={url}
-            name={name}
-        />
+        return customImageElement({url, name});
     }
 
     return (
