@@ -20,7 +20,7 @@ export type MessageListProps = {
     customTypingIndicatorComponent?: React.ReactNode
     customEmptyMessagesComponent?: React.ReactNode
     customLoaderComponent?: React.ReactNode
-    axiosClient?: any
+    customImageElement?: any
 }
 
 
@@ -100,7 +100,7 @@ export default function MessageList({
     customTypingIndicatorComponent,
     customLoaderComponent,
     customEmptyMessagesComponent,
-    axiosClient
+    customImageElement
 }: MessageListProps) {
 
     /** keeps track of whether messages was previously empty or whether it has already scrolled */
@@ -253,7 +253,7 @@ export default function MessageList({
                                         loading={messageLoading}
                                         clusterFirstMessage={firstClusterMessage}
                                         clusterLastMessage={lastClusterMessage}
-                                        axiosClient={axiosClient}
+                                        customImageElement={customImageElement}
                                     />
 
                                 } else {
@@ -271,7 +271,7 @@ export default function MessageList({
                                         last={single ? false : last}
                                         single={single}
                                         text={text}
-                                        axiosClient={axiosClient}
+                                        customImageElement={customImageElement}
                                     />
                                 }
                             })}

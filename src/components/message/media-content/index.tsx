@@ -9,7 +9,7 @@ interface Props extends MediaType {
     last?: boolean
     single?: boolean,
     messageType: "incoming" | "outgoing"
-    axiosClient?: any
+    customImageElement?: any
 }
 
 const ImageContainer = styled.div`
@@ -48,8 +48,14 @@ export default function MediaContent({
     single,
     messageType,
     name,
-    axiosClient
+    customImageElement
 }: Props) {
+    if (customImageElement) { // @ts-ignore
+        return <customImageElement
+            url={url}
+            name={name}
+        />
+    }
 
     return (
         <>
