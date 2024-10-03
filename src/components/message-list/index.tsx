@@ -34,7 +34,6 @@ max-height: 100vh;
 overflow-y: hidden;
 /* background-color: #ffffff; */
 padding-left: 0px;
-padding-right: 12px; 
 `
 
 const InnerContainer = styled.div`

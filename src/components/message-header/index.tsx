@@ -20,7 +20,6 @@ const Container = styled.div<{ mobile?: boolean }>`
     box-sizing: border-box;
 
     ${({ mobile }) => !mobile ? `
-    padding-right: 12px;
     ` :
         `
     `}
