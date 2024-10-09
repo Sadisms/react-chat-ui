@@ -1,11 +1,11 @@
 import React from 'react';
 import './index.css';
 
-const Loading = ({ size = 50, color = '#3498db' }) => {
+const Loading = ({themeColor = '#3498db' }) => {
   const loaderStyle = {
-    width: size,
-    height: size,
-    border: `4px solid ${color}`,
+    width: 50,
+    height: 50,
+    border: `4px solid ${themeColor}`,
     borderTop: `4px solid transparent`,
   };
 
